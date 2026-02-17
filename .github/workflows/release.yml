@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ needs.release.outputs.release_created }}
     steps:
-      - run: gh release edit ${{ needs.release.outputs.tag_name }} --draft=true --repo='elixir-lang/expert'
+      - run: gh release edit ${{ needs.release.outputs.tag_name }} --draft=true --repo='doorgan/expert-test'
 
   build:
     needs: [release, draft]
@@ -68,4 +68,4 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - run: gh release edit ${{ needs.release.outputs.tag_name }} --draft=false --repo='elixir-lang/expert'
+      - run: gh release edit ${{ needs.release.outputs.tag_name }} --draft=false --repo='doorgan/expert-test'
